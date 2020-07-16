@@ -1,6 +1,6 @@
-import Demo from "./demo/Demo.vue";
+import CustomFormFill from "./CustomFormFill/CustomFormFill.vue";
 
-const components = [Demo];
+const components = [CustomFormFill];
 
 const install = (Vue: any) => {
   if ((install as any).installed) return;

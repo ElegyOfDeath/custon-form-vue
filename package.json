@@ -2,21 +2,12 @@
   "name": "v-custom-form",
   "version": "0.0.1",
   "private": false,
-  "main": "lib/v-custom-form.umd.min",
-  "license": "MIT",
   "description": "",
-  "keywords": [
-    "自定义表单",
-    "基于element-ui"
-  ],
   "author": {
     "name": "戴琪铭",
     "email": "dqm159159@163.com",
     "url": "http://elegyofdeath.top"
   },
-  "files": [
-    "lib/**"
-  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -24,11 +15,21 @@
     "lib": "vue-cli-service build --target lib --name v-custom-form --dest lib packages/index.ts",
     "publish": "npm run lib && npm publish"
   },
+  "main": "lib/v-custom-form.umd.min",
+  "files": [
+    "lib/**"
+  ],
   "dependencies": {
+    "@types/uuid": "^8.0.0",
     "core-js": "^3.6.5",
+    "dayjs": "^1.8.29",
+    "element-ui": "^2.4.5",
+    "number-precision": "^1.5.0",
+    "uuid": "^8.2.0",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
-    "vue-property-decorator": "^8.4.2"
+    "vue-property-decorator": "^8.4.2",
+    "vuedraggable": "^2.24.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.33.0",
@@ -39,6 +40,7 @@
     "@vue/cli-service": "~4.4.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
@@ -47,11 +49,17 @@
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
+    "vue-cli-plugin-element": "~1.0.1",
     "vue-template-compiler": "^2.6.11"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "keywords": [
+    "自定义表单",
+    "基于element-ui"
+  ],
+  "license": "MIT",
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
       "vue-cli-service lint",

@@ -1,0 +1,60 @@
+$contentFontSize: 12px;
+
+/deep/ .el-form-item__label {
+  width: 100%;
+  font-size: 13px;
+  color: #4a4a4a;
+  line-height: 20px;
+}
+
+.el-select {
+  width: 100%;
+}
+.el-radio,
+.el-checkbox {
+  display: block;
+
+  & /deep/.el-radio__inner,
+  & /deep/.el-checkbox__inner {
+    border-color: #a7a7a7 !important;
+    vertical-align: middle;
+    top: 5px;
+  }
+
+  & /deep/.el-radio__label,
+  & /deep/.el-checkbox__label {
+    color: #4a4a4a !important;
+    font-size: $contentFontSize;
+    line-height: 28px !important;
+  }
+}
+
+.el-checkbox-group,
+.el-radio-group {
+  & label {
+    display: flex;
+    white-space: normal;
+  }
+}
+
+.el-textarea /deep/.el-textarea__inner {
+  font-size: $contentFontSize;
+  min-height: 100px !important;
+}
+
+/deep/.el-input__inner {
+  text-overflow: ellipsis;
+  font-size: $contentFontSize;
+  height: 30px;
+}
+
+/deep/ .el-input__suffix {
+  font-size: $contentFontSize;
+}
+
+.label-tip {
+  font-weight: normal;
+  font-size: $contentFontSize;
+  color: #9b9b9b;
+  margin-left: 10px;
+}

@@ -1,0 +1,86 @@
+.el-form-item {
+  margin-bottom: 10px;
+
+  & /deep/ .el-form-item__label {
+    font-weight: bold;
+  }
+
+  /deep/ .el-form-item__content {
+    line-height: 28px;
+  }
+}
+
+.prompt-tip {
+  color: #999999;
+}
+
+.label-tip {
+  color: #9b9b9b;
+  display: inline-block;
+  margin-left: 5px;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.config-item-checkbox {
+  display: flex;
+  width: 100%;
+
+  /deep/ .el-checkbox__label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    color: #4a4a4a;
+  }
+
+  /deep/ .el-checkbox__inner {
+    margin-top: 2px;
+  }
+}
+
+.config-item-format-select {
+  width: 100%;
+}
+
+.config-item-number-range {
+  display: flex;
+
+  /deep/ .el-divider {
+    width: 20%;
+    margin: 15px 5px 0 5px;
+  }
+}
+
+.config-item-single-select {
+  & /deep/ .el-radio {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  & /deep/ .el-select {
+    margin-bottom: 10px;
+  }
+}
+
+.config-item-label {
+  line-height: 25px;
+  font-size: 13px;
+  color: #333333;
+}
+
+.config-item-desc {
+  display: flex;
+  line-height: 25px;
+
+  .label {
+    flex-shrink: 0;
+  }
+
+  .content {
+    font-size: 12px;
+  }
+}
+
+.top-desc {
+  margin-top: 10px;
+}
