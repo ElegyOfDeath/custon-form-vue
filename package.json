@@ -1,11 +1,19 @@
 {
-  "name": "vue-npm-template",
+  "name": "v-custom-form",
   "version": "0.0.1",
   "private": false,
-  "main": "lib/vue-npm-template.umd.min",
+  "main": "lib/v-custom-form.umd.min",
   "license": "MIT",
   "description": "",
-  "keywords": [],
+  "keywords": [
+    "自定义表单",
+    "基于element-ui"
+  ],
+  "author": {
+    "name": "戴琪铭",
+    "email": "dqm159159@163.com",
+    "url": "http://elegyofdeath.top"
+  },
   "files": [
     "lib/**"
   ],
@@ -13,7 +21,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name vue-npm-template --dest lib packages/index.ts",
+    "lib": "vue-cli-service build --target lib --name v-custom-form --dest lib packages/index.ts",
     "publish": "npm run lib && npm publish"
   },
   "dependencies": {
