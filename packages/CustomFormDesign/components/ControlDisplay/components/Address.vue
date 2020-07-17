@@ -35,7 +35,7 @@ import { Component, Mixins } from "vue-property-decorator";
 import BaseFormDisplay from "../BaseFormDisplay.vue";
 
 @Component
-export default class SsAddress extends Mixins(BaseFormDisplay) {}
+export default class Address extends Mixins(BaseFormDisplay) {}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formDisplay.scss";

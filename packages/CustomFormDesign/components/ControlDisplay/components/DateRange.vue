@@ -24,7 +24,7 @@ import { Component, Mixins } from "vue-property-decorator";
 import BaseFormDisplay from "../BaseFormDisplay.vue";
 
 @Component
-export default class SsDateRange extends Mixins(BaseFormDisplay) {}
+export default class DateRange extends Mixins(BaseFormDisplay) {}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formDisplay.scss";

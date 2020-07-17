@@ -1,4 +1,4 @@
-<!--定位-->
+<!--下拉框-->
 <template>
   <el-form ref="form" label-position="top" @submit.native.prevent>
     <el-form-item
@@ -6,10 +6,7 @@
       :required="formProps.required"
       :label="formProps.label"
     >
-      <el-button type="info" plain class="location-item"
-        >获取当前位置</el-button
-      >
-      <div>请在移动端打开表单获取位置信息</div>
+      <el-select v-model="value" :placeholder="formProps.placeholder" />
     </el-form-item>
   </el-form>
 </template>
@@ -18,11 +15,8 @@ import { Component, Mixins } from "vue-property-decorator";
 import BaseFormDisplay from "../BaseFormDisplay.vue";
 
 @Component
-export default class SsLocation extends Mixins(BaseFormDisplay) {}
+export default class DropDown extends Mixins(BaseFormDisplay) {}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formDisplay.scss";
-.location-item {
-  width: 100%;
-}
 </style>

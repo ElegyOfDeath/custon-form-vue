@@ -9,8 +9,8 @@
     </div>
     <div v-else class="config-content">
       <component
-        :is="settings.componentName"
-        v-model="settings.props"
+        :is="componentName"
+        v-model="props"
         :settingsList="settingsList"
       />
     </div>

@@ -40,7 +40,7 @@ export default class CustomFormDesign extends Vue {
   restoreComponentList() {
     // const list = this.formBody.map(item => {
     //   const settings = getComponentSettings(item.componentName, item.props);
-    //   const info = getComponentInfo(settings.componentName);
+    //   const info = getComponentInfo(componentName);
     //   return { info, settings };
     // });
     const list: any[] = [];
@@ -59,6 +59,9 @@ export default class CustomFormDesign extends Vue {
 }
 </script>
 <style lang="scss" scoped>
+.el-container {
+  height: 100%;
+}
 .el-main {
   padding: 0;
   border-left: 1px solid #d8d8d8;

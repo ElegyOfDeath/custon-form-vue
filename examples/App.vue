@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    sasasa
     <CustomFormFill />
     <CustomFormDesign />
   </div>
@@ -20,4 +19,8 @@ import CustomFormDesign from "../packages/CustomFormDesign/CustomFormDesign.vue"
 export default class App extends Vue {}
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#app {
+  height: 500px;
+}
+</style>

@@ -30,7 +30,7 @@ import { Component, Mixins } from "vue-property-decorator";
 import BaseFormDisplay from "../BaseFormDisplay.vue";
 
 @Component
-export default class SsSplitLine extends Mixins(BaseFormDisplay) {}
+export default class SplitLine extends Mixins(BaseFormDisplay) {}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formDisplay.scss";

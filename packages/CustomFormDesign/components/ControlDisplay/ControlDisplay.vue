@@ -10,27 +10,26 @@
       @add="handleAdd"
       @change="handleMove"
     >
-      <template v-for="(item, i) in controlList">
-        <ControlDisplayWrap
-          :key="item.settings.props.id"
-          :formDetail="item"
-          @click.native="updateSelectControl(i)"
-        />
-      </template>
+      <ControlDisplayWrap
+        v-for="(item, i) in controlList"
+        :key="item.props.id"
+        :formDetail="item"
+        @click.native="updateSelectControl(i)"
+      />
     </draggable>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { state, mutations } from "../../store";
-import ControlDisplayWrap from "./ControlDisplayWrap.vue";
 import draggable from "vuedraggable";
+import ControlDisplayWrap from "./ControlDisplayWrap.vue";
+import { state, mutations } from "../../store";
 
 @Component({
   components: {
-    ControlDisplayWrap,
-    draggable
+    draggable,
+    ControlDisplayWrap
   }
 })
 export default class ControlDisplay extends Vue {

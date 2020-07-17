@@ -1,8 +1,12 @@
-<!--多选框-->
+<!--单选框-->
 <template>
   <el-form ref="form" label-position="top" @submit.native.prevent>
-    <el-form-item :show-message="false" :required="formProps.required">
-      <span slot="label">
+    <el-form-item
+      :show-message="false"
+      :required="formProps.required"
+      class="single-select"
+    >
+      <span slot="label" class="control-label">
         {{ formProps.label }}
         <span class="label-tip">{{ formProps.placeholder }}</span>
       </span>
@@ -23,7 +27,7 @@ import { Component, Mixins } from "vue-property-decorator";
 import BaseFormDisplay from "../BaseFormDisplay.vue";
 
 @Component
-export default class SsMultiSelect extends Mixins(BaseFormDisplay) {}
+export default class Select extends Mixins(BaseFormDisplay) {}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formDisplay.scss";

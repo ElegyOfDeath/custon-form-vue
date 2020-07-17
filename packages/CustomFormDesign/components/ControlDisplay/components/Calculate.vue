@@ -1,17 +1,13 @@
-<!--多行输入框-->
+<!--计算公式-->
 <template>
   <el-form ref="form" label-position="top" @submit.native.prevent>
     <el-form-item
       :show-message="false"
       :required="formProps.required"
-      :label="formSettings.props.label"
+      :label="formProps.label"
     >
-      <el-input
-        v-model="value"
-        :placeholder="formProps.placeholder"
-        resize="none"
-        type="textarea"
-      />
+      <el-input v-model="value" :placeholder="formProps.placeholder" />
+      <div v-if="formProps.upper" class="upper-desc">大写：贰仟（示例）</div>
     </el-form-item>
   </el-form>
 </template>
@@ -20,8 +16,11 @@ import { Component, Mixins } from "vue-property-decorator";
 import BaseFormDisplay from "../BaseFormDisplay.vue";
 
 @Component
-export default class SsTextarea extends Mixins(BaseFormDisplay) {}
+export default class Calculate extends Mixins(BaseFormDisplay) {}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formDisplay.scss";
+.upper-desc {
+  color: #666;
+}
 </style>

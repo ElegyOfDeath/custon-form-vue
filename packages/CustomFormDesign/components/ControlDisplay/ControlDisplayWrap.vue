@@ -1,13 +1,10 @@
 <!-- 控件展示外壳 -->
 <template>
   <div :class="{ active: selectId === curId }" class="control-display-item">
-    <!-- 控件覆盖蒙层防止编辑 -->
-    <div v-if="componentName !== 'RefundApprove'" class="overlay" />
-
     <!-- 包含的控件 -->
     <div class="control-item">
       <component
-        :is="getNodeComponent(componentName)"
+        :is="componentName"
         ref="form"
         :formSettings="formDetail.settings"
       />
@@ -38,53 +35,43 @@
 <script lang="ts">
 import { Component, Vue, Prop, Watch } from "vue-property-decorator";
 import { state, mutations } from "../../store";
-import SsInput from "./components/SsInput.vue";
-import SsTextarea from "./components/SsTextarea.vue";
-import SsNumberInput from "./components/SsNumberInput.vue";
-import SsSelect from "./components/SsSelect.vue";
-import SsMultiSelect from "./components/SsMultiSelect.vue";
-import SsDropDown from "./components/SsDropDown.vue";
-import SsDate from "./components/SsDate.vue";
-import SsDateRange from "./components/SsDateRange.vue";
-import SsImagePicker from "./components/SsImagePicker.vue";
-import SsDescription from "./components/SsDescription.vue";
-import SsAddress from "./components/SsAddress.vue";
-import SsLocation from "./components/SsLocation.vue";
-import SsAmount from "./components/SsAmount.vue";
-import SsAnnex from "./components/SsAnnex.vue";
-import SsContact from "./components/SsContact.vue";
-import SsDepartment from "./components/SsDepartment.vue";
-import SsCalculate from "./components/SsCalculate.vue";
-import SsSplitLine from "./components/SsSplitLine.vue";
+import Input from "./components/Input.vue";
+import Textarea from "./components/Textarea.vue";
+import NumberInput from "./components/NumberInput.vue";
+import Select from "./components/Select.vue";
+import MultiSelect from "./components/MultiSelect.vue";
+import DropDown from "./components/DropDown.vue";
+import Date from "./components/Date.vue";
+import DateRange from "./components/DateRange.vue";
+import Description from "./components/Description.vue";
+import Address from "./components/Address.vue";
+import Amount from "./components/Amount.vue";
+import Calculate from "./components/Calculate.vue";
+import SplitLine from "./components/SplitLine.vue";
 import { v4 as uuidv4 } from "uuid";
 
 @Component({
   components: {
-    SsInput,
-    SsTextarea,
-    SsNumberInput,
-    SsSelect,
-    SsMultiSelect,
-    SsDropDown,
-    SsDate,
-    SsDateRange,
-    SsImagePicker,
-    SsDescription,
-    SsAddress,
-    SsLocation,
-    SsAmount,
-    SsAnnex,
-    SsContact,
-    SsDepartment,
-    SsCalculate,
-    SsSplitLine
+    Input,
+    Textarea,
+    NumberInput,
+    Select,
+    MultiSelect,
+    DropDown,
+    Date,
+    DateRange,
+    Description,
+    Address,
+    Amount,
+    Calculate,
+    SplitLine
   }
 })
 export default class ControlDisplayWarp extends Vue {
   @Prop() formDetail!: any;
 
   get componentName() {
-    return this.formDetail.settings.componentName;
+    return this.formDetail.componentName;
   }
   get isConditionComponentsNode() {
     return mutations.isConditionComponent(this.curId);
@@ -94,33 +81,21 @@ export default class ControlDisplayWarp extends Vue {
   }
   get curId() {
     // 当前控件id
-    return this.formDetail.settings.props.id;
+    return this.formDetail.props.id;
   }
   get selectId() {
     // 被选中控件的id
     return state.selectFormControl.settings
-      ? state.selectFormControl.settings.props.id
+      ? state.selectFormControl.props.id
       : "";
   }
   get curIndex() {
     // 当前控件在表单的index
     return state.componentList.findIndex(
-      (item: any) => item.settings.props.id === this.curId
+      (item: any) => item.props.id === this.curId
     );
   }
-  // 组件映射
-  getNodeComponent(name: string) {
-    switch (name) {
-      case "Input":
-        return "SsInput";
-      case "Textarea":
-        return "SsTextarea";
-      case "NumberInput":
-        return "SsNumberInput";
-      default:
-        return name;
-    }
-  }
+
   // 打开删除确认弹框
   openDeleteConfirm() {
     this.$confirm(
@@ -169,23 +144,15 @@ export default class ControlDisplayWarp extends Vue {
   // 复制当前组件
   handleClone() {
     const info = { ...this.formDetail.info };
-    const props = { ...this.formDetail.settings.props };
+    const props = { ...this.formDetail.props };
     props.id = uuidv4();
     const settings = {
-      componentName: this.formDetail.settings.componentName,
+      componentName: this.formDetail.componentName,
       ...props
     };
     const newControl = { info, settings };
     state.componentList.splice(this.curIndex + 1, 0, newControl);
     mutations.saveFormControl(newControl);
-  }
-
-  @Watch("isConditionComponentsNode")
-  watchHandler(val: boolean) {
-    if (val) {
-      // 若为条件结点，则必填
-      this.formDetail.settings.props.required = true;
-    }
   }
 }
 </script>
@@ -201,15 +168,7 @@ export default class ControlDisplayWarp extends Vue {
   margin: 0;
   position: relative;
   border-left: 5px solid transparent;
-  .overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 9;
-    cursor: move;
-  }
+
   .control-delete,
   .control-clone {
     position: absolute;
