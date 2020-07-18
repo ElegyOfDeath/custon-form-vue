@@ -43,8 +43,7 @@ export default class CustomFormDesign extends Vue {
     //   const info = getComponentInfo(componentName);
     //   return { info, settings };
     // });
-    const list: any[] = [];
-    mutations.saveComponentList(list);
+    mutations.saveComponentList(this.formBody);
   }
 
   @Emit("valueChange")

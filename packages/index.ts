@@ -1,6 +1,7 @@
 import CustomFormFill from "./CustomFormFill/CustomFormFill.vue";
+import CustomFormDesign from "./CustomFormDesign/CustomFormDesign.vue";
 
-const components = [CustomFormFill];
+const components = [CustomFormFill, CustomFormDesign];
 
 const install = (Vue: any) => {
   if ((install as any).installed) return;

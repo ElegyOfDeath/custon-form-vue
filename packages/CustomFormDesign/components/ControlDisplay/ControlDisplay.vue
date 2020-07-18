@@ -12,7 +12,7 @@
     >
       <ControlDisplayWrap
         v-for="(item, i) in controlList"
-        :key="item.props.id"
+        :key="item.id"
         :formDetail="item"
         @click.native="updateSelectControl(i)"
       />
@@ -52,7 +52,6 @@ export default class ControlDisplay extends Vue {
       this.updateSelectControl(event.moved.newIndex);
     }
   }
-
   created() {
     if (!state.componentList) {
       mutations.saveComponentList([]);
@@ -82,16 +81,16 @@ export default class ControlDisplay extends Vue {
 .el-form-item:hover {
   cursor: move;
 }
-.empty-control-display:before {
-  content: "从左侧点击或拖拽来添加字段";
-  color: #9b9b9b;
-  font-size: 13px;
-}
 .empty-control-display {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 15px;
   border: 1px dashed #d8d8d8;
+  &::before {
+    content: "从左侧点击或拖拽来添加字段";
+    color: #9b9b9b;
+    font-size: 13px;
+  }
 }
 </style>

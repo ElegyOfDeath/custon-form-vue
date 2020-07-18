@@ -22,6 +22,7 @@
 import { Vue, Component } from "vue-property-decorator";
 import draggable from "vuedraggable";
 import { state, mutations } from "../../store";
+import { controlList } from "../../controlList";
 import { v4 as uuidv4 } from "uuid";
 
 @Component({
@@ -30,11 +31,7 @@ import { v4 as uuidv4 } from "uuid";
   }
 })
 export default class ControlSelector extends Vue {
-  controlList = [
-    { name: "单行输入框" },
-    { name: "多行输入框" },
-    { name: "单选框" }
-  ];
+  controlList = controlList;
 
   draggableConfig = {
     group: {
@@ -47,11 +44,18 @@ export default class ControlSelector extends Vue {
   };
 
   cloneControl(info: any) {
-    // return new ComponentItem(info, { id: uuidv4() });
+    return {
+      name: info.name,
+      componentName: info.componentName,
+      props: {
+        ...info.props,
+        id: uuidv4()
+      }
+    };
   }
   clickAddControl(info: any) {
     const newControl = this.cloneControl(info);
-    const selectId = state.selectFormControl.settings
+    const selectId = state.selectFormControl.props?.id
       ? state.selectFormControl.props.id
       : "";
     const activeIndex = state.componentList.findIndex(
@@ -59,6 +63,7 @@ export default class ControlSelector extends Vue {
     );
     state.componentList.splice(activeIndex + 1, 0, newControl);
     mutations.saveFormControl(newControl);
+    console.log(state.selectFormControl);
   }
 }
 </script>

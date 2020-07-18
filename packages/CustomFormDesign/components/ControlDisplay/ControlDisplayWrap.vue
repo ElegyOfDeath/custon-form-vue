@@ -1,13 +1,12 @@
 <!-- 控件展示外壳 -->
 <template>
   <div :class="{ active: selectId === curId }" class="control-display-item">
+    <!-- 控件覆盖蒙层防止编辑 -->
+    <div class="overlay" />
+
     <!-- 包含的控件 -->
     <div class="control-item">
-      <component
-        :is="componentName"
-        ref="form"
-        :formSettings="formDetail.settings"
-      />
+      <component :is="componentName" ref="form" :formSettings="formDetail" />
     </div>
 
     <!-- 复制删除 -->
@@ -18,7 +17,7 @@
         style="color: #FD4056; font-size: 14px;"
         circle
         plain
-        @click="openDeleteConfirm"
+        @click="handleDelete"
       />
       <el-button
         title="复制"
@@ -33,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
 import { state, mutations } from "../../store";
 import Input from "./components/Input.vue";
 import Textarea from "./components/Textarea.vue";
@@ -85,7 +84,7 @@ export default class ControlDisplayWarp extends Vue {
   }
   get selectId() {
     // 被选中控件的id
-    return state.selectFormControl.settings
+    return state.selectFormControl.props?.id
       ? state.selectFormControl.props.id
       : "";
   }
@@ -96,35 +95,6 @@ export default class ControlDisplayWarp extends Vue {
     );
   }
 
-  // 打开删除确认弹框
-  openDeleteConfirm() {
-    this.$confirm(
-      "若删除该字段，其对应的表单数据也会被清除，确定删除？",
-      "提示",
-      {
-        confirmButtonText: "删除",
-        cancelButtonText: "取消"
-      }
-    ).then(() => {
-      if (this.isConditionComponentsNode) {
-        // 若控件被流程树选中则无法删除
-        this.$message({
-          message: "该控件已被添加为流程条件，无法删除！",
-          type: "error",
-          showClose: true
-        });
-      } else if (this.isApprovalComponentsNode) {
-        // 若控件被添加为审批/抄送人则无法删除
-        this.$message({
-          message: "该控件已被添加为审批/抄送人，无法删除！",
-          type: "error",
-          showClose: true
-        });
-      } else {
-        this.handleDelete();
-      }
-    });
-  }
   // 删除当前组件
   handleDelete() {
     const index = this.curIndex;
@@ -168,11 +138,19 @@ export default class ControlDisplayWarp extends Vue {
   margin: 0;
   position: relative;
   border-left: 5px solid transparent;
-
+  .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    cursor: move;
+  }
   .control-delete,
   .control-clone {
     position: absolute;
-    bottom: -15px;
+    bottom: -10px;
     z-index: 2000;
     padding: 10px;
     border: none;

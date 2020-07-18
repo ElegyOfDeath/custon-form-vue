@@ -2,15 +2,15 @@
 <template>
   <div class="form-config">
     <h1 class="config-header">
-      {{ info ? info.name : "字段属性" }}
+      {{ formConfig.name }}
     </h1>
-    <div v-if="!info" class="empty-prompt">
-      请添加字段
+    <div v-if="!formConfig.name" class="empty-prompt">
+      请添加控件
     </div>
     <div v-else class="config-content">
       <component
-        :is="componentName"
-        v-model="props"
+        :is="formConfig.componentName"
+        v-model="formConfig.props"
         :settingsList="settingsList"
       />
     </div>
@@ -54,20 +54,8 @@ export default class ControlConfig extends Vue {
   get formConfig() {
     return state.selectFormControl;
   }
-  get info() {
-    if (this.formConfig.info) {
-      return this.formConfig.info;
-    }
-    return null;
-  }
-  get settings() {
-    if (this.formConfig.settings) {
-      return this.formConfig.settings;
-    }
-    return {};
-  }
   get settingsList() {
-    return state.componentList.map((item: any) => item.settings);
+    return state.componentList;
   }
 }
 </script>

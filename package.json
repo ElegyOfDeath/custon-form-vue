@@ -20,7 +20,6 @@
     "lib/**"
   ],
   "dependencies": {
-    "@types/uuid": "^8.0.0",
     "core-js": "^3.6.5",
     "dayjs": "^1.8.29",
     "element-ui": "^2.4.5",
@@ -32,6 +31,7 @@
     "vuedraggable": "^2.24.0"
   },
   "devDependencies": {
+    "@types/uuid": "^8.0.0",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "@vue/cli-plugin-babel": "~4.4.0",
