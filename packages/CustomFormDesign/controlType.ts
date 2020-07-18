@@ -61,4 +61,4 @@ interface DatePicker {
   limitDateTime?: string | string[];
 }
 
-export { Address, Amount, Input, Calculate };
+export { Address, Amount, Input, Calculate, DatePicker };

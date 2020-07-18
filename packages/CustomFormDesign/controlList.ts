@@ -1,9 +1,9 @@
-import { Input, Address, Amount, Calculate } from "./controlType";
+import { Input, Address, Amount, Calculate, DatePicker } from "./controlType";
 
 interface Control {
   name: string;
   componentName: string;
-  props: Input | Address | Amount | Calculate;
+  props: Input | Address | Amount | Calculate | DatePicker;
 }
 
 const controlList: Control[] = [
@@ -48,7 +48,7 @@ const controlList: Control[] = [
     }
   },
   {
-    name: "地址",
+    name: "计算公式",
     componentName: "Calculate",
     props: {
       id: "",
@@ -57,6 +57,22 @@ const controlList: Control[] = [
       print: true,
       formula: [],
       upper: true
+    }
+  },
+  {
+    name: "日期",
+    componentName: "Date",
+    props: {
+      id: "",
+      label: "日期",
+      placeholder: "请选择",
+      initialValue: "",
+      required: true,
+      print: true,
+      limitSwitch: false,
+      type: "datetime", // 'datetime' 'date'日期格式
+      limitType: 1,
+      limitDateTime: ""
     }
   }
 ];

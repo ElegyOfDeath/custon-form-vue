@@ -8,13 +8,8 @@
       :formConfig="item.props"
       :formValue="formValue"
       :formIndex="index"
-      :suiteType="suiteType"
-      :extraData="extraData"
-      :isConditionComponent="getIsConditionComponent(item.props.id)"
-      :isApprovalComponent="getIsApprovalComponent(item.props.id)"
       :isOnlyRead="isOnlyRead"
       @getData="getData"
-      @change="onChange"
     />
   </div>
 </template>
