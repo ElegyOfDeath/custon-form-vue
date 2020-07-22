@@ -1,5 +1,5 @@
 <template>
-  <!-- 自定义表单单选框 -->
+  <!-- 自定义表单下拉框 -->
   <el-form
     ref="formDom"
     :model="form"
@@ -9,16 +9,20 @@
     @submit.native.prevent
   >
     <el-form-item prop="value" :label="formConfig.label">
-      <el-radio-group v-model="form.value">
-        <el-radio
+      <el-select
+        v-model="form.value"
+        :placeholder="formConfig.placeholder"
+        :multiple="formConfig.multiple"
+        collapse-tags
+        clearable
+      >
+        <el-option
           v-for="(item, index) in formConfig.options"
           :key="index"
           :label="item"
-          @change="onChange"
-        >
-          {{ item }}
-        </el-radio>
-      </el-radio-group>
+          :value="item"
+        />
+      </el-select>
     </el-form-item>
   </el-form>
 </template>
@@ -29,7 +33,7 @@ import BaseComponent from "./BaseComponent.vue";
 import { baseForm } from "../../entity/baseForm";
 
 @Component
-export default class Select extends Mixins(BaseComponent) {
+export default class DropDown extends Mixins(BaseComponent) {
   form: baseForm<string> = {
     value: ""
   };

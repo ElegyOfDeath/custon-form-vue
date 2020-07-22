@@ -22,8 +22,10 @@
         最多{{ optionsMaxAmount }}项，每项最多{{ maxLength }}个字
       </div>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="close">取 消</el-button>
-        <el-button type="primary" @click="saveOptions">确 定</el-button>
+        <el-button size="small" @click="close">取 消</el-button>
+        <el-button size="small" type="primary" @click="saveOptions">
+          确 定
+        </el-button>
       </span>
     </el-dialog>
   </div>
@@ -100,14 +102,19 @@ export default class OptionEditDialog extends Vue {
     border-radius: 5px;
   }
   & /deep/.el-dialog__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #f2f6fd;
-    padding: 10px 20px;
+    padding: 5px 15px;
     border-radius: 5px 5px 0 0;
     border-bottom: 1px solid #d1e0fa;
-    font-size: 15px;
+    .el-dialog__title {
+      font-size: 14px;
+    }
   }
   & /deep/.el-dialog__headerbtn {
-    top: 10px;
+    position: static;
   }
   & /deep/.el-dialog__body {
     font-size: 12px;

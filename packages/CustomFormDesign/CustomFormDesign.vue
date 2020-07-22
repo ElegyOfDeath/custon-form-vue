@@ -30,7 +30,7 @@ export default class CustomFormDesign extends Vue {
   @Model("valueChange") formBody!: Array<any>;
 
   get componentList() {
-    return state.componentList.map(item => item.settings);
+    return state.componentList;
   }
 
   created() {
@@ -38,11 +38,6 @@ export default class CustomFormDesign extends Vue {
   }
 
   restoreComponentList() {
-    // const list = this.formBody.map(item => {
-    //   const settings = getComponentSettings(item.componentName, item.props);
-    //   const info = getComponentInfo(componentName);
-    //   return { info, settings };
-    // });
     mutations.saveComponentList(this.formBody);
   }
 

@@ -13,7 +13,6 @@
         :placeholder="formConfig.placeholder"
         clearable
         @input="onInput"
-        @change="onChange"
       >
         <template v-if="formConfig.unit" slot="append">
           {{ formConfig.unit }}
@@ -26,6 +25,7 @@
 import { Component, Mixins } from "vue-property-decorator";
 import BaseComponent from "./BaseComponent.vue";
 import { baseForm, ruleItem } from "../../entity/baseForm";
+import rules from "../../entity/rules";
 
 @Component
 export default class NumberInput extends Mixins(BaseComponent) {
@@ -40,11 +40,11 @@ export default class NumberInput extends Mixins(BaseComponent) {
         trigger: ["change", "blur"]
       }
     ];
-    // if (this.formConfig.integer) {
-    //   rule.push({ ...rules.integer, trigger: ["change", "blur"] });
-    // } else {
-    //   rule.push({ ...rules.numPoint, trigger: ["change", "blur"] });
-    // }
+    if (this.formConfig.integer) {
+      rule.push({ ...rules.integer, trigger: ["change", "blur"] });
+    } else {
+      rule.push({ ...rules.numPoint, trigger: ["change", "blur"] });
+    }
     return rule;
   }
 
@@ -53,16 +53,18 @@ export default class NumberInput extends Mixins(BaseComponent) {
   }
 
   numRangeValidator(rule: ruleItem, value: string, callback: Function) {
-    const min = Number(this.formConfig.minValue);
-    const max = Number(this.formConfig.maxValue);
-    if (min || min === 0) {
-      if (min > Number(value)) {
-        return callback(new Error("请在规定数值范围内输入"));
+    if (this.formConfig.numberRange) {
+      const min = Number(this.formConfig.minValue);
+      const max = Number(this.formConfig.maxValue);
+      if (min || min === 0) {
+        if (min > Number(value)) {
+          return callback(new Error("请在规定数值范围内输入"));
+        }
       }
-    }
-    if (max || max === 0) {
-      if (max < Number(value)) {
-        return callback(new Error("请在规定数值范围内输入"));
+      if (max || max === 0) {
+        if (max < Number(value)) {
+          return callback(new Error("请在规定数值范围内输入"));
+        }
       }
     }
     return callback();

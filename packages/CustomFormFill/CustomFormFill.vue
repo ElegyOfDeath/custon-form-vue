@@ -22,9 +22,9 @@ import Address from "./components/Address.vue";
 import Amount from "./components/Amount.vue";
 import Date from "./components/Date.vue";
 import DateRange from "./components/DateRange.vue";
-import DropDown from "./components/DropDown.vue";
-import MultiSelect from "./components/MultiSelect.vue";
 import Select from "./components/Select.vue";
+import Checkbox from "./components/Checkbox.vue";
+import Radio from "./components/Radio.vue";
 import Textarea from "./components/Textarea.vue";
 import SplitLine from "./components/SplitLine.vue";
 import Description from "./components/Description.vue";
@@ -39,8 +39,8 @@ import Calculate from "./components/Calculate.vue";
     Amount,
     Date,
     DateRange,
-    DropDown,
-    MultiSelect,
+    Radio,
+    Checkbox,
     Select,
     Textarea,
     SplitLine,

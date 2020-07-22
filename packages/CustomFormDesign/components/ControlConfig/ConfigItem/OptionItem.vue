@@ -28,12 +28,10 @@
           @input="inputChange($event, i)"
           @blur="clearStyle"
         />
-        <span class="drag-option-item"
-          ><i class="dragBtn iconfont iconpaixu"
-        /></span>
+        <span class="drag-option-item"><i class="dragBtn el-icon-sort"/></span>
         <span class="drag-option-item">
           <i
-            class="deleteBtn iconfont iconshanchu1"
+            class="deleteBtn el-icon-circle-close"
             style="color: red;"
             @click="handleOptionsRemove(i)"
           />
@@ -175,6 +173,7 @@ export default class OptionItem extends Vue {
   }
   .drag-option {
     .drag-option-item {
+      flex: 1;
       display: inline-block;
       vertical-align: middle;
       margin-right: 5px;

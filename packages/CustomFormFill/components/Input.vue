@@ -21,6 +21,7 @@
 import { Component, Mixins } from "vue-property-decorator";
 import BaseComponent from "./BaseComponent.vue";
 import { ruleItem, baseForm } from "../../entity/baseForm";
+import rules from "../../entity/rules";
 
 @Component
 export default class Input extends Mixins(BaseComponent) {
@@ -33,10 +34,10 @@ export default class Input extends Mixins(BaseComponent) {
       { validator: this.dataInput, trigger: ["change", "blur"] }
     ];
     if (this.formConfig.format !== "none") {
-      // rule.push({
-      //   ...rules[this.formConfig.format],
-      //   trigger: ["change", "blur"]
-      // });
+      rule.push({
+        ...(rules as any)[this.formConfig.format],
+        trigger: ["change", "blur"]
+      });
     }
     return rule;
   }

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <CustomFormFill />
-    <CustomFormDesign />
+    <CustomFormDesign v-model="componentList" />
+    <CustomFormFill v-model="formValue" :componentList="componentList" />
   </div>
 </template>
 
@@ -16,7 +16,10 @@ import CustomFormDesign from "../packages/CustomFormDesign/CustomFormDesign.vue"
     CustomFormDesign
   }
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  formValue: any[] = [];
+  componentList: any[] = [];
+}
 </script>
 
 <style lang="scss">

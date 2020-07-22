@@ -55,7 +55,7 @@ export default class ControlSelector extends Vue {
   }
   clickAddControl(info: any) {
     const newControl = this.cloneControl(info);
-    const selectId = state.selectFormControl.props?.id
+    const selectId = state.selectFormControl?.props
       ? state.selectFormControl.props.id
       : "";
     const activeIndex = state.componentList.findIndex(
@@ -63,7 +63,6 @@ export default class ControlSelector extends Vue {
     );
     state.componentList.splice(activeIndex + 1, 0, newControl);
     mutations.saveFormControl(newControl);
-    console.log(state.selectFormControl);
   }
 }
 </script>

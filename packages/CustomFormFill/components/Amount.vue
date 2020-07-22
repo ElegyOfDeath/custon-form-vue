@@ -14,7 +14,6 @@
         :placeholder="formConfig.placeholder"
         clearable
         @input="onInput"
-        @change="onChange"
       />
       <div v-if="formConfig.upper" style="color: #666;">
         大写：{{ dataModeltoUpperCase }}

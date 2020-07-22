@@ -1,6 +1,6 @@
 <!-- 控件展示外壳 -->
 <template>
-  <div :class="{ active: selectId === curId }" class="control-display-item">
+  <div :class="{ active: isSelectControl }" class="control-display-item">
     <!-- 控件覆盖蒙层防止编辑 -->
     <div class="overlay" />
 
@@ -10,18 +10,20 @@
     </div>
 
     <!-- 复制删除 -->
-    <template v-if="selectId === curId">
+    <template v-if="isSelectControl">
       <el-button
         title="删除"
-        class="control-delete iconfont iconshanchu2"
+        icon="el-icon-delete"
+        class="control-delete"
         style="color: #FD4056; font-size: 14px;"
         circle
         plain
-        @click="handleDelete"
+        @click.stop="handleDelete"
       />
       <el-button
         title="复制"
-        class="control-clone iconfont iconfuzhi1"
+        icon="el-icon-copy-document"
+        class="control-clone"
         style="color: #3296FA; font-size: 14px;"
         circle
         plain
@@ -78,9 +80,12 @@ export default class ControlDisplayWarp extends Vue {
   }
   get selectId() {
     // 被选中控件的id
-    return state.selectFormControl.props?.id
+    return state.selectFormControl?.props
       ? state.selectFormControl.props.id
       : "";
+  }
+  get isSelectControl() {
+    return this.curId === this.selectId;
   }
   get curIndex() {
     // 当前控件在表单的index
@@ -107,16 +112,15 @@ export default class ControlDisplayWarp extends Vue {
   }
   // 复制当前组件
   handleClone() {
-    const info = { ...this.formDetail.info };
     const props = { ...this.formDetail.props };
     props.id = uuidv4();
-    const settings = {
+    const control = {
+      name: this.formDetail.name,
       componentName: this.formDetail.componentName,
-      ...props
+      props
     };
-    const newControl = { info, settings };
-    state.componentList.splice(this.curIndex + 1, 0, newControl);
-    mutations.saveFormControl(newControl);
+    state.componentList.splice(this.curIndex + 1, 0, control);
+    mutations.saveFormControl(control);
   }
 }
 </script>
