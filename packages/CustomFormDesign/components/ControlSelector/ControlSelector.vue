@@ -22,7 +22,7 @@
 import { Vue, Component } from "vue-property-decorator";
 import draggable from "vuedraggable";
 import { state, mutations } from "../../store";
-import { controlList } from "../../controlList";
+import { controlList } from "../../entity/controlList";
 import { v4 as uuidv4 } from "uuid";
 
 @Component({

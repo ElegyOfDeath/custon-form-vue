@@ -37,9 +37,9 @@ import { state, mutations } from "../../store";
 import Input from "./components/Input.vue";
 import Textarea from "./components/Textarea.vue";
 import NumberInput from "./components/NumberInput.vue";
+import Radio from "./components/Radio.vue";
+import Checkbox from "./components/Checkbox.vue";
 import Select from "./components/Select.vue";
-import MultiSelect from "./components/MultiSelect.vue";
-import DropDown from "./components/DropDown.vue";
 import Date from "./components/Date.vue";
 import DateRange from "./components/DateRange.vue";
 import Description from "./components/Description.vue";
@@ -55,8 +55,8 @@ import { v4 as uuidv4 } from "uuid";
     Textarea,
     NumberInput,
     Select,
-    MultiSelect,
-    DropDown,
+    Checkbox,
+    Radio,
     Date,
     DateRange,
     Description,

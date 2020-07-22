@@ -23,8 +23,8 @@ import Input from "./components/Input.vue";
 import Textarea from "./components/Textarea.vue";
 import NumberInput from "./components/NumberInput.vue";
 import Select from "./components/Select.vue";
-import MultiSelect from "./components/MultiSelect.vue";
-import DropDown from "./components/DropDown.vue";
+import Checkbox from "./components/Checkbox.vue";
+import Radio from "./components/Radio.vue";
 import Date from "./components/Date.vue";
 import DateRange from "./components/DateRange.vue";
 import Description from "./components/Description.vue";
@@ -39,8 +39,8 @@ import SplitLine from "./components/SplitLine.vue";
     Textarea,
     NumberInput,
     Select,
-    MultiSelect,
-    DropDown,
+    Checkbox,
+    Radio,
     Date,
     DateRange,
     Description,
@@ -52,7 +52,7 @@ import SplitLine from "./components/SplitLine.vue";
 })
 export default class ControlConfig extends Vue {
   get formConfig() {
-    return state.selectFormControl;
+    return state.selectFormControl || {};
   }
   get settingsList() {
     return state.componentList;

@@ -58,24 +58,16 @@
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
 import BaseFormConfig from "../BaseFormConfig.vue";
+import { INPUT_FORMAT, INPUT_FORMAT_OPTIONS } from "../../../entity/constant";
 
-// const { INPUT_FORMAT, INPUT_FORMAT_OPTIONS } = constant;
-// const { NONE, MOBILE_PHONE, TELEPHONE, ZIP, ID_CARD, EMAIL } = INPUT_FORMAT;
-const INPUT_FORMAT_OPTIONS: any = [];
-const formatValue = [
-  "NONE",
-  "MOBILE_PHONE",
-  "TELEPHONE",
-  "ZIP",
-  "ID_CARD",
-  "EMAIL"
-];
+const { NONE, MOBILE_PHONE, TELEPHONE, ZIP, ID_CARD, EMAIL } = INPUT_FORMAT;
+const formatValue = [NONE, MOBILE_PHONE, TELEPHONE, ZIP, ID_CARD, EMAIL];
 
 @Component
 export default class Input extends Mixins(BaseFormConfig) {
   // 获得格式的选项
   get getFormatOptions() {
-    return INPUT_FORMAT_OPTIONS.filter((item: any) =>
+    return INPUT_FORMAT_OPTIONS.filter(item =>
       formatValue.find(val => val === item.value)
     );
   }

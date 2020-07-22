@@ -60,7 +60,7 @@ import OptionItem from "../ConfigItem/OptionItem.vue";
     OptionItem
   }
 })
-export default class MultiSelect extends Mixins(BaseFormConfig) {}
+export default class Checkbox extends Mixins(BaseFormConfig) {}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formConfig.scss";

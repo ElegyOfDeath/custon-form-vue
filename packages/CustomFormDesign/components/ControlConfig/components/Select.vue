@@ -1,4 +1,4 @@
-<!--单选框-->
+<!--下拉框-->
 <template>
   <el-form
     ref="formRule"
@@ -15,16 +15,17 @@
       prop="label"
       emptyMsg="标题不可为空"
     />
-    <!-- 提示文字 -->
-    <InputTextItem
+    <!-- 下拉框类型 -->
+    <el-form-item
       :key="formDetail.id + 2"
-      v-model="formDetail.placeholder"
-      :maxLength="50"
-      :enableEmpty="true"
-      label="提示文字"
-      prop="placeholder"
-      inputTip="输入框内最多可填写50个字"
-    />
+      label="下拉框类型"
+      class="config-item-single-select"
+    >
+      <el-radio-group v-model="formDetail.multiple">
+        <el-radio :label="false">下拉单选框</el-radio>
+        <el-radio :label="true">下拉多选框</el-radio>
+      </el-radio-group>
+    </el-form-item>
     <!-- 选项 -->
     <OptionItem
       :key="formDetail.id + 3"
@@ -37,13 +38,9 @@
     />
     <!-- 校验 -->
     <el-form-item :key="formDetail.id + 4" label="校验">
-      <el-checkbox
-        v-model="formDetail.required"
-        :disabled="isConditionComponentsNode"
-        class="config-item-checkbox"
+      <el-checkbox v-model="formDetail.required" class="config-item-checkbox"
+        >必填</el-checkbox
       >
-        必填
-      </el-checkbox>
     </el-form-item>
     <!-- 打印 -->
     <el-form-item :key="formDetail.id + 5" label="打印">

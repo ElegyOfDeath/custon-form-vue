@@ -1,24 +1,12 @@
-<!--单选框-->
+<!--下拉框-->
 <template>
   <el-form ref="form" label-position="top" @submit.native.prevent>
     <el-form-item
       :show-message="false"
       :required="formProps.required"
-      class="single-select"
+      :label="formProps.label"
     >
-      <span slot="label" class="control-label">
-        {{ formProps.label }}
-        <span class="label-tip">{{ formProps.placeholder }}</span>
-      </span>
-      <el-radio-group v-model="value">
-        <el-radio
-          v-for="(item, index) in formProps.options"
-          :key="index"
-          :label="item"
-        >
-          {{ item }}
-        </el-radio>
-      </el-radio-group>
+      <el-select v-model="value" :placeholder="formProps.placeholder" />
     </el-form-item>
   </el-form>
 </template>
