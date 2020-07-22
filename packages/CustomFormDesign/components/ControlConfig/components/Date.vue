@@ -134,17 +134,7 @@ import { Component, Mixins, Watch } from "vue-property-decorator";
 import dayjs from "dayjs";
 import BaseFormConfig from "../BaseFormConfig.vue";
 import { formRules, ruleItem } from "../../../../entity/baseForm";
-
-const DATE_TYPE = {
-  DATE: "date",
-  DATETIME: "datetime"
-};
-enum DATE_LIMIT_TYPE {
-  TODAY,
-  BEFORE,
-  AFTER,
-  RANGE
-}
+import { DATE_TYPE, DATE_LIMIT_TYPE } from "../../../entity/constant";
 
 @Component
 export default class Date extends Mixins(BaseFormConfig) {

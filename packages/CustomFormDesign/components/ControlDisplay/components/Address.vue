@@ -23,7 +23,7 @@
         />
       </div>
       <el-input
-        v-if="formProps.addrType === constant.ADDRESS_TYPE.DETAIL_ADDR"
+        v-if="formProps.addrType === ADDRESS_TYPE.DETAIL_ADDR"
         v-model="formProps.initialValue.detail"
         placeholder="详细地址"
       />
@@ -33,9 +33,12 @@
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
 import BaseFormDisplay from "../BaseFormDisplay.vue";
+import { ADDRESS_TYPE } from "../../../entity/constant";
 
 @Component
-export default class Address extends Mixins(BaseFormDisplay) {}
+export default class Address extends Mixins(BaseFormDisplay) {
+  ADDRESS_TYPE = ADDRESS_TYPE;
+}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formDisplay.scss";

@@ -7,19 +7,19 @@
       :label="formProps.label"
     >
       <div
-        v-if="formProps.lineType === constant.SPLIT_LINE_TYPE.NONE"
+        v-if="formProps.lineType === SPLIT_LINE_TYPE.NONE"
         class="split-line"
       />
       <div
-        v-if="formProps.lineType === constant.SPLIT_LINE_TYPE.DOTTED"
+        v-if="formProps.lineType === SPLIT_LINE_TYPE.DOTTED"
         class="split-line dotted-line"
       />
       <div
-        v-if="formProps.lineType === constant.SPLIT_LINE_TYPE.SOLID"
+        v-if="formProps.lineType === SPLIT_LINE_TYPE.SOLID"
         class="split-line solid-line"
       />
       <div
-        v-if="formProps.lineType === constant.SPLIT_LINE_TYPE.BOLD"
+        v-if="formProps.lineType === SPLIT_LINE_TYPE.BOLD"
         class="split-line bold-line"
       />
     </el-form-item>
@@ -28,9 +28,12 @@
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
 import BaseFormDisplay from "../BaseFormDisplay.vue";
+import { SPLIT_LINE_TYPE } from "../../../entity/constant";
 
 @Component
-export default class SplitLine extends Mixins(BaseFormDisplay) {}
+export default class SplitLine extends Mixins(BaseFormDisplay) {
+  SPLIT_LINE_TYPE = SPLIT_LINE_TYPE;
+}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formDisplay.scss";

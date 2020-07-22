@@ -71,12 +71,6 @@ export default class NumberInput extends Mixins(BaseComponent) {
   onInput(e: string) {
     this.form.value = e.replace(/[^0-9.]/g, "");
   }
-
-  onChange() {
-    if (this.isConditionComponent) {
-      this.procChange();
-    }
-  }
 }
 </script>
 <style lang="scss" scoped></style>

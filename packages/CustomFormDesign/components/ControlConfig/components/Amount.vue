@@ -26,11 +26,7 @@
     />
     <!-- 校验 -->
     <el-form-item :key="formDetail.id + 3" label="校验">
-      <el-checkbox
-        v-model="formDetail.required"
-        :disabled="isConditionComponentsNode"
-        class="config-item-checkbox"
-      >
+      <el-checkbox v-model="formDetail.required" class="config-item-checkbox">
         必填
       </el-checkbox>
     </el-form-item>

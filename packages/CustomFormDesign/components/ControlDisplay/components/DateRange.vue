@@ -13,7 +13,7 @@
     >
       <el-input v-model="value">
         <template slot="suffix">
-          {{ formProps.type === constant.DATE_TYPE.DATETIME ? "小时" : "天" }}
+          {{ formProps.type === DATE_TYPE.DATETIME ? "小时" : "天" }}
         </template>
       </el-input>
     </el-form-item>
@@ -22,9 +22,12 @@
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
 import BaseFormDisplay from "../BaseFormDisplay.vue";
+import { DATE_TYPE } from "../../../entity/constant";
 
 @Component
-export default class DateRange extends Mixins(BaseFormDisplay) {}
+export default class DateRange extends Mixins(BaseFormDisplay) {
+  DATE_TYPE = DATE_TYPE;
+}
 </script>
 <style scoped lang="scss">
 @import "../../../styles/formDisplay.scss";

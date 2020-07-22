@@ -14,8 +14,6 @@ export default class BaseComponent extends Vue {
   @Prop() formConfig!: any;
   @Prop() formIndex!: number;
   @Prop() formValue!: Array<any>; // 当前表单所填写的内容，主要是计算公示需要用到
-  @Prop() isConditionComponent!: boolean; // 当前控件是否为条件节点
-  @Prop() isApprovalComponent!: boolean; // 当前控件是否为审批节点
   @Prop() isOnlyRead?: boolean; // 是否只读
 
   @Ref() readonly formDom!: Form;

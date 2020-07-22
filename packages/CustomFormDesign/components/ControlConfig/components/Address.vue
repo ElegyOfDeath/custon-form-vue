@@ -63,11 +63,7 @@ import { Component, Mixins } from "vue-property-decorator";
 import BaseFormConfig from "../BaseFormConfig.vue";
 import AddressSelectItem from "../ConfigItem/AddressSelectItem.vue";
 import { address } from "../../../../entity/baseForm";
-
-const ADDRESS_TYPE = {
-  DETAIL_ADDR: "",
-  SIMPLE_ADDR: ""
-};
+import { ADDRESS_TYPE } from "../../../entity/constant";
 
 @Component({
   components: {

@@ -31,17 +31,12 @@
       v-model="formDetail.options"
       :maxLength="50"
       :optionsMaxAmount="200"
-      :isConditionComponentsNode="isConditionComponentsNode"
       label="选项"
       prop="options"
     />
     <!-- 校验 -->
     <el-form-item :key="formDetail.id + 4" label="校验">
-      <el-checkbox
-        v-model="formDetail.required"
-        :disabled="isConditionComponentsNode"
-        class="config-item-checkbox"
-      >
+      <el-checkbox v-model="formDetail.required" class="config-item-checkbox">
         必填
       </el-checkbox>
     </el-form-item>

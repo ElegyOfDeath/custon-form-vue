@@ -32,7 +32,6 @@
       v-model="formDetail.options"
       :maxLength="50"
       :optionsMaxAmount="200"
-      :isConditionComponentsNode="isConditionComponentsNode"
       label="选项"
       prop="options"
     />

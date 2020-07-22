@@ -65,11 +65,7 @@
 <script lang="ts">
 import { Component, Mixins, Watch } from "vue-property-decorator";
 import BaseFormConfig from "../BaseFormConfig.vue";
-
-const DATE_TYPE = {
-  DATE: "date",
-  DATETIME: "datetime"
-};
+import { DATE_TYPE } from "../../../entity/constant";
 
 @Component
 export default class DateRange extends Mixins(BaseFormConfig) {

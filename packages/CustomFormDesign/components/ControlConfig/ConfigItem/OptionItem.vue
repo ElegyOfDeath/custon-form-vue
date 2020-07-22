@@ -1,12 +1,6 @@
 <!-- 选项配置-->
 <template>
   <el-form-item class="option-item" disabled="true">
-    <!-- 若为条件结点则覆盖蒙层防止编辑-->
-    <div
-      v-if="isConditionComponentsNode"
-      class="overlay"
-      @click="disableRemind"
-    ></div>
     <span slot="label">
       {{ label }}
       <span v-if="placement === 'top'" class="label-tip">
@@ -29,7 +23,6 @@
         <el-input
           v-model="options[i]"
           :class="{ 'input-over-length': i === overLengthIndex }"
-          :disabled="isConditionComponentsNode"
           size="mini"
           class="drag-option-item"
           @input="inputChange($event, i)"
@@ -91,7 +84,6 @@ import draggable from "vuedraggable";
 })
 export default class OptionItem extends Vue {
   @Prop() value!: Array<any>;
-  @Prop({ type: Boolean, default: false }) isConditionComponentsNode!: boolean;
   @Prop({ type: String, default: "标题" }) label!: string;
   @Prop({ type: Number, default: -1 }) maxLength!: number;
   @Prop() prop?: string;

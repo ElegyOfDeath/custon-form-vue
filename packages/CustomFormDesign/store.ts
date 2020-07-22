@@ -13,17 +13,5 @@ export const mutations = {
   },
   saveFormControl(formControl: any) {
     state.selectFormControl = formControl;
-  },
-  saveConditionComponentList(list: Array<any>) {
-    state.conditionComponentList = list;
-  },
-  saveApprovalComponentList(list: Array<any>) {
-    state.approvalComponentList = list;
-  },
-  isConditionComponent(id: string) {
-    return state.conditionComponentList.includes(id);
-  },
-  isApprovalComponent(id: string) {
-    return state.approvalComponentList.includes(id);
   }
 };

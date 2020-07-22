@@ -72,12 +72,6 @@ export default class ControlDisplayWarp extends Vue {
   get componentName() {
     return this.formDetail.componentName;
   }
-  get isConditionComponentsNode() {
-    return mutations.isConditionComponent(this.curId);
-  }
-  get isApprovalComponentsNode() {
-    return mutations.isApprovalComponent(this.curId);
-  }
   get curId() {
     // 当前控件id
     return this.formDetail.props.id;

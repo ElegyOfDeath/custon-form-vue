@@ -33,12 +33,6 @@ export default class Select extends Mixins(BaseComponent) {
   form: baseForm<string> = {
     value: ""
   };
-
-  onChange() {
-    if (this.isConditionComponent) {
-      this.procChange();
-    }
-  }
 }
 </script>
 

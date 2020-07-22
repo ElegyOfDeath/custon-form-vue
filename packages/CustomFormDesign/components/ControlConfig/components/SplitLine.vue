@@ -48,13 +48,7 @@
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
 import BaseFormConfig from "../BaseFormConfig.vue";
-
-const SPLIT_LINE_TYPE = {
-  NONE: "",
-  DOTTED: "",
-  SOLID: "",
-  BOLD: ""
-};
+import { SPLIT_LINE_TYPE } from "../../../entity/constant";
 
 @Component
 export default class SplitLine extends Mixins(BaseFormConfig) {

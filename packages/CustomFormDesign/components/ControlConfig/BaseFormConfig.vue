@@ -15,13 +15,6 @@ export default class BaseFormConfig extends Vue {
   @Prop() settingsList!: Array<any>;
   @Ref() formRule?: Form;
 
-  get isConditionComponentsNode() {
-    return mutations.isConditionComponent(this.formDetail.id);
-  }
-  get isApprovalComponentsNode() {
-    return mutations.isApprovalComponent(this.formDetail.id);
-  }
-
   @Emit("detailChange")
   detailChange() {
     return this.formDetail;

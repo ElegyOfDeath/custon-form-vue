@@ -58,12 +58,6 @@ export default class Amount extends Mixins(BaseComponent) {
   onInput(e: string) {
     this.form.value.money = e.replace(/[^0-9.]/g, "");
   }
-
-  onChange() {
-    if (this.isConditionComponent) {
-      this.procChange();
-    }
-  }
 }
 </script>
 
