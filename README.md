@@ -1,5 +1,33 @@
 # custom-form-vue
 
+## 安装
+
+```
+npm install custom-form-vue
+```
+
+## 引入
+
+具体使用请参考`examples/App.vue`
+
+### main.js中
+
+```
+import Vue from "vue"
+import CustomFormVue from "custom-form-vue"
+
+Vue.use(CustomFormVue)
+```
+
+### 项目文件中
+
+```
+<template>
+    <CustomFormDesign v-model="componentList" />
+    <CustomFormFill v-model="formValue" :componentList="componentList" />
+</template>
+```
+
 ## 使用指南
 
 ### CustomFormFill
