@@ -1,21 +1,25 @@
 {
-  "name": "v-custom-form",
+  "name": "custom-form-vue",
   "version": "0.0.1",
   "private": false,
-  "description": "",
+  "description": "自定义表单",
   "author": {
     "name": "戴琪铭",
     "email": "dqm159159@163.com",
     "url": "http://elegyofdeath.top"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ElegyOfDeath/custon-form-vue"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name v-custom-form --dest lib packages/index.ts",
+    "lib": "vue-cli-service build --target lib --name custom-form-vue --dest lib packages/index.ts",
     "publish": "npm run lib && npm publish"
   },
-  "main": "lib/v-custom-form.umd.min",
+  "main": "lib/custom-form-vue.umd.min",
   "files": [
     "lib/**"
   ],
