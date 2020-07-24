@@ -1,6 +1,6 @@
 {
   "name": "custom-form-vue",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": false,
   "description": "自定义表单",
   "author": {
@@ -19,7 +19,7 @@
     "lib": "vue-cli-service build --target lib --name custom-form-vue --dest lib packages/index.ts",
     "upload": "npm run lib && npm publish"
   },
-  "main": "lib/custom-form-vue.umd.min",
+  "main": "lib/custom-form-vue.common.js",
   "files": [
     "lib/**"
   ],
