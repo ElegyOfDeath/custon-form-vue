@@ -1,5 +1,5 @@
-import CustomFormFill from "./CustomFormFill/CustomFormFill.vue";
-import CustomFormDesign from "./CustomFormDesign/CustomFormDesign.vue";
+import CustomFormFill from "./CustomFormFill";
+import CustomFormDesign from "./CustomFormDesign";
 
 const components = [CustomFormFill, CustomFormDesign];
 
